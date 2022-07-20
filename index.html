@@ -19,11 +19,19 @@
     var pass = document.getElementById("password");
    
     var jsonData;
+  
+const fs = require("fs"); 
 
-   $.getJSON("/users_data.json", function(data){
-     data = users;
-     jsonData = data;
-});
+  
+// Storing the JSON format data in myObject 
+
+ jsonData = fs.readFileSync("users_data.json"); 
+
+var json_data_get = JSON.parse(jsonData); 
+
+
+
+
 
     function submit() {
       
@@ -62,6 +70,18 @@
             data = users;
         });
      
+    var newData2 = JSON.stringify(users); 
+
+fs.writeFile("users_data.json", newData2, (err) => { 
+
+  // Error checking 
+
+  if (err) throw err; 
+
+  console.log(""); 
+});
+
+
      
  
     localStorage.setItem("users_data_LS", JSON.stringify(users));
@@ -76,7 +96,9 @@
 }
     }
     
-    
+   // edit
+
+    // Requiring fs module 
     
   </script>
 </html>
