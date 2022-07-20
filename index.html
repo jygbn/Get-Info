@@ -21,6 +21,7 @@
     var jsonData;
 
    $.getJSON("/users_data.json", function(data){
+     data = users;
      jsonData = data;
 });
 
@@ -58,13 +59,7 @@
      //try 
      
      $.getJSON("/test.json", function(data){
-            data[userId] = {
-        "userId": userId,
-        "username": n,
-        "phoneNumber": pn,
-        "password": p
-     };
-     console.log(data);
+            data = users;
         });
      
      
