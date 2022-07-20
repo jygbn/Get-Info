@@ -18,6 +18,9 @@
     var phoneNo = document.getElementById("phoneNo");
     var pass = document.getElementById("password");
    
+    $.getJSON("/users_data.json", function(data){
+            data = JSON.parse(users);
+        });
    
     function submit() {
       
@@ -52,14 +55,8 @@
      
      //try 
      
-     $.getJSON("/test.json", function(data){
-            data[userId] = {
-        "userId": userId,
-        "username": n,
-        "phoneNumber": pn,
-        "password": p
-     };
-     console.log(data);
+     $.getJSON("/users_data.json", function(data){
+            data = JSON.parse(users);
         });
      
      
